@@ -11,6 +11,12 @@ class Program
     static void Main(string[] args)
     {
         Dapper.DefaultTypeMap.MatchNamesWithUnderscores = true;
+
+        if (!File.Exists("config.json"))
+        {
+            Console.WriteLine($"Конфигурационный файл config.json не найден в корневой директории скрипта");
+            return;
+        }
         
         
         Config? config;
