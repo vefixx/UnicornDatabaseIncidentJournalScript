@@ -91,7 +91,7 @@ class Program
             Console.WriteLine($"Всего строк из таблицы view_danger_energy_with_no_motion_scen: {scenaries.Count}");
             
             newIncidents.AddRange(
-                scenaries.Select(sc => new Incident()
+                scenaries.Where(sc => sc.IsDanger).Select(sc => new Incident()
                 {
                     Ts = sc.Ts,
                     ApartmentId = sc.ApartmentId,
